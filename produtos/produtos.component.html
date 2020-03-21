@@ -1,0 +1,33 @@
+
+  <div class="panel panel-default espaco">
+  <h1 [ngStyle]="{fontSize: '50px', backgroundColor: 'rgb(29, 43, 38)', padding: '30px', 
+  color: ' rgb(186, 241, 122)'}">Jogo Matemático</h1>
+  <hr>
+  <label id="labelText">{{ str_operacao }}</label>
+    <form [formGroup]="formulario">
+  <input [ngStyle]="{fontSize: '40px',borderRadios: '15px',color: 'green',
+   backgroundColor: ' rgb(183, 207, 199)', padding: '15px', width: '100px', height: '100px'}"
+  type="number"  class="input-lg text-center" id="meuInput" onfocus="this.value='';" 
+  (input)="definirResultado($event)" formControlName="numero" >
+
+  <div *ngIf="!this.formulario.get('numero').valid && this.formulario.get('numero').touched" 
+  class="alert alert-danger fonte1" role="alert">
+    *Digite um número
+
+  </div>
+ 
+</form>
+  <button id="botao" class="btn btn-primary btn-lg" (click)="avaliarResultadoInserido()" 
+  [disabled]="!this.formulario.get('numero').valid && this.formulario.get('numero').touched">Ok</button>
+  <ng-content class="1"></ng-content>
+  <p #res > {{ res }}</p>
+  
+
+
+
+
+  </div>
+<hr>
+<p class="alert alert-danger" #mudaClasse>{{ valorInput }}</p>
+
+

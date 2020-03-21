@@ -1,0 +1,28 @@
+h1{
+    text-align: center;
+    font-weight: bold;
+    color: tomato;
+}
+label{
+    width: 40%;
+   padding: 10px;
+   font-size: 15px;
+}
+input{
+    padding: 21px;
+}
+span{
+    text-align: center;
+    font-size: 15px;
+}
+h3{
+    color: rgb(51, 110, 37);
+    text-align: center;
+    font-weight: bold;
+}
+.ng-invalid.ng-touched:not(form) {
+    border: 2px solid #f00;
+}
+.fonte1 {
+    font-size: 12px;
+}

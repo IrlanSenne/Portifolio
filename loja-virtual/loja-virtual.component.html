@@ -1,0 +1,42 @@
+<!--================= LOGO ==================-->
+<div *ngIf="habilita" class="container panel">
+
+  <a class="navbar-brand" 
+  [ngStyle]="{ fontSize : '20px', color: 'brown', position: 'relative',
+          top: '10px',left: '0px' }">
+    <img id="foto-logo" src="assets/clave-sol.png"      
+    width="180" height="180" class="d-inline-block align-top" alt="" routerLink="/loja-virtual" >      
+  </a>   
+
+  </div>
+<!-- ==================='MENU'==================0-->
+  <ul class="nav justify-content-end " [ngStyle]="{  position: 'relative',
+  top: '-50px',left: 'auto' }">
+
+    <li class="nav-item mr-5">
+      <a class="btn btn-danger btn-lg botaoMenu " 
+      routerLink="/loja-virtual/loja" > Loja </a>
+    </li>
+  </ul>
+  <!--================ Titulo ==================== -->
+    <div *ngIf="habilita" id="boxSha" class="jumbotron jumbotron-fluid">
+      <div class="container  text-center">
+        <h1 id="tituloHome1"class="display-4">Bem vindo !</h1>
+        <p id="tituloHome" class="lead">Encontre seu instrumento aqui.</p>
+      </div>
+    </div><br><br><br><br><br><br><br><br>
+   <!-- ================= FOOTER ============================-->
+
+   <footer class=" corRodape">
+    <div class="text-center">
+     <i  class="glyphicon glyphicon-thumbs-up icones"></i>
+     <i class="glyphicon glyphicon-search icones"></i>
+     <i class="glyphicon glyphicon-envelope icones"></i>
+    </div>
+     <p class="rodape text-center"> 
+      *** Todos os direitos reservados - Irlan Senne ***
+     </p>
+    </footer>
+   <hr>
+
+         

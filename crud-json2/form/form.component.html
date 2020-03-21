@@ -1,0 +1,42 @@
+<form class="needs-validation" novalidate [formGroup]="form" style="padding-top: 10px">
+    <div class="form-row">
+      <div class="col-sm-6">
+        <label for="titulo">Nome da Música</label>
+        <input
+          type="text"
+          class="form-control"
+          id="titulo" 
+          placeholder="Nome da Música"
+          formControlName="titulo"
+          [ngClass]="{ 'is-invalid': submitted && hasError('titulo')}"
+          [(ngModel)]="tituloMusica"
+          #titulo
+        />
+        <div class="invalid-feedback" *ngIf="hasError('titulo') && hasError('titulo')['required']" >
+          Por favor informe um nome.
+        </div>
+        <div class="invalid-feedback" *ngIf="hasError('titulo') && hasError('titulo')['minlength']" >
+          <p class="alert alert-danger"> Nome precisa ter no mínimo {{ hasError('titulo')['minlength'].requiredLength }} caracteres.</p>
+        </div>
+        <div class="invalid-feedback" *ngIf="hasError('titulo') && hasError('titulo')['maxlength']" >
+          Nome precisa ter no máximo {{ hasError('titulo')['maxlength'].requiredLength }} caracteres.
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 10px">
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Salvar</button>
+      <button type="button" class="btn btn-default" (click)="onCancel()">Cancelar</button>
+    </div>
+  </form>
+  <br>
+   <!-- =========== MODAL ================ -->
+           
+   <ng-template #myModal>
+           
+    <div  class="modal-body alert-{{type}} text-center ">
+    Música <strong>"{{ tituloMusica }}"</strong> {{message}} !
+      <button type="button" class="close pull-right" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+    </div>
+  </ng-template>

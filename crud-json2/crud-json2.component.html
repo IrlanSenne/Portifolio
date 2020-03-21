@@ -1,0 +1,76 @@
+
+<div class="card mt-3">
+    <div class="card-header">
+      <div class="float-left">
+        <h4>Músicas</h4>
+      </div>
+      <div class="float-right">
+        <button type="button" class="btn btn-primary btn-lg " routerLink="/nova">Adicionar Música</button>       
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover" *ngIf="(musicas$ | async) as musicas; else loadingError">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Música</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let musica of musicas">
+            <td>{{ musica.id }}</td>
+            <td>{{ musica.titulo }}</td>
+            <td>
+              <span class="text-right">
+                <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(musica.id)">
+                  Atualizar
+                </button>
+  
+                <button class="btn btn-outline-danger  mb-1 btn-sm" (click)="onDelete(musica)">
+                  Remover
+                </button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!--==================== Erros =======================-->
+      <ng-template #loadingError>
+        <div *ngIf="error$ | async; else loading" >
+                   
+          <div *ngIf="!mostraModal " class="alert alert-danger" role="alert">
+            Erro ao carregar as músicas. Tente novamente mais tarde.
+          </div>
+        </div>
+        <ng-template #loading>
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+        </ng-template>
+           </ng-template>
+
+           <!-- =========== MODAL ================ -->
+           
+           <ng-template  #myModal>
+           
+            <div  *ngIf="mostraModal"  class="modal-body alert-{{type}} text-center ">
+            Erro ao carregar as músicas. Tente novamente mais tarde.
+              <button type="button" class="close pull-right" aria-label="Close"  (click)="closeModal()">
+               <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+          </ng-template>
+          
+          <ng-template  #myModal2>
+           
+            <div class="modal-body alert-{{type}} text-center ">
+            Música <span>"{{tituloMusica}}"</span> foi removida.
+              <button type="button" class="close pull-right" aria-label="Close"  (click)="closeModal()">
+               <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+          </ng-template>
+        
+
+         

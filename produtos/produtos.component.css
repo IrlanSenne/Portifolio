@@ -1,0 +1,45 @@
+.espaco {
+    margin: 40px;
+    padding: 30px;
+}
+#labelText{
+    font-size: 50px;
+}
+#jogoMatematico{
+    font-size: 100px;
+    text-align: center;
+   
+}
+#botao{
+    width: 100px;
+    height: 50px;
+    background-color: rgb(183, 207, 199);
+    font-size: 20px;
+  
+    font-weight: bold;
+    border-radius: 15   0px;
+    color: rgb(125, 125, 175);
+    background-color: rgb(29, 43, 38);
+    box-shadow: 10px 10px 20px 10px #000;
+}
+#botao:hover{
+    color: rgb(13, 26, 6);
+    background-color: rgb(183, 207, 199);
+    box-shadow: 10px 10px 20px 10px rgb(36, 53, 24);
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+    -moz-appearance: textfield;
+    appearance: textfield;
+ 
+ }
+ .ng-invalid.ng-touched:not(form) {
+    border: 2px solid #f00;
+}
+.fonte1 {
+    font-size: 12px;
+}

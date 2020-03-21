@@ -1,0 +1,13 @@
+.resposta1{
+    background-color: rgb(15, 29, 4);
+    color: rgb(129, 241, 154)
+}
+.resposta2{
+    background-color: rgb(80, 5, 5);
+    color:rgb(202, 120, 120)
+}
+#corContainer{
+background-color: rgb(186, 241, 122);
+box-shadow: 10px 10px 150px 10px rgb(27, 59, 27);
+
+}

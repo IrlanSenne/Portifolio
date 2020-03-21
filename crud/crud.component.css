@@ -1,0 +1,12 @@
+h1{  
+    font-weight: bold;
+    color: tomato;
+}
+#nav1{
+    background-color: rgb(243, 191, 191);
+    box-shadow: 5px 5px 15px 5px rgb(138, 53, 53);
+    border: 2px solid rgb(100, 27, 27)
+}
+#nav1 a {
+    color:rgb(107, 28, 12);
+}

@@ -1,0 +1,25 @@
+<h1>Usuários</h1>
+
+<table *ngIf="responseUsers">
+    <thead>
+        <td>Nome</td>
+        <td>Apelido</td>
+        <td>...</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of responseUsers.data">
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>
+                <a title="Editar" [ngStyle]="{ color: 'grey' ,marginRight: '10px', fontSize: '20px' }" 
+                routerLink="/users/update/{{ user.id }}">
+               Editar</a> 
+
+                <a title="Excluir" [ngStyle]="{ color: 'rgb(214, 115, 115)' , fontSize: '20px' }" 
+                routerLink="/users/delete/{{ user.id }}">
+                Excluir</a>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

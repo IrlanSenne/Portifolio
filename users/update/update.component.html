@@ -1,0 +1,20 @@
+
+<div class="container panel panel-default text-center">
+    <h1>Editar Usuário</h1>
+</div>
+<div class="text-center " *ngIf="request">
+
+    <label >Nome:
+        <input type="text" class="form-control"  placeholder="Nome"
+         [(ngModel)]="request.name">        
+    </label>    
+    <br>
+    <label >Profissão:
+        <input type="text" class="form-control" placeholder="Insira a profissão" 
+        [(ngModel)]="request.job">    
+    </label> 
+        <br>
+    <button class="btn btn-danger btn-lg" (click)="update()"
+   >Atualizar</button>    
+</div>
+<div *ngIf="mostra" class="alert alert-success text-center">Atualizado com sucesso</div>

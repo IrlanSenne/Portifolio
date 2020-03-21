@@ -1,0 +1,35 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark "  >
+  <a class="navbar-brand menuFonte mr-5 fonteHome" routerLinkActive="active" 
+  routerLink=""> <i class="glyphicon glyphicon-home fonteHome"></i> Home</a>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon wit "></span>
+  </button>
+
+  <div class="collapse navbar-collapse  " id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 " >
+      <li routerLinkActive="active" class="nav-item ">
+        <a class="nav-link  bg-dark  active text-muted w-100 p-3 text-monospace ml-5 mr-5 rounded " 
+        [ngClass]="{'text-light': true}"
+        routerLink="/projetos">Projetos <span class="sr-only">(current)</span></a>
+      </li>
+      <li  routerLinkActive="active" class="nav-item " >
+        <a class=" nav-link active bg-dark w-100 p-3 text-muted   text-monospace ml-5 rounded"
+        [ngClass]="{'text-light': true}"
+        routerLink="/contato" > Contato</a>
+      </li>
+     
+     
+    </ul>
+    
+  </div>
+</nav>
+<div class="container">
+ 
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+

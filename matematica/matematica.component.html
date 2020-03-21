@@ -1,0 +1,24 @@
+<div class="container panel panel-default text-center " id="corContainer">
+    <div class="panel panel-default bg-success">
+
+            <produtoss [resultado]="resultado" (resposta)="avaliarResposta($event)">
+                <h2 class="1" [ngClass]="corResposta">
+                 {{resposta_final}}
+                 </h2>
+
+                 
+            </produtoss>
+           
+
+
+
+            <div class="text-center">
+              
+                <h4 [ngStyle]="{ fontWeight: 'bold', fontSize: '20px' }" class="alert alert-success">Acertos: {{ acertos }}</h4>
+                <h4 [ngStyle]="{ fontWeight: 'bold', fontSize: '20px' }" class="alert alert-danger">Erros: {{ erros }}</h4>
+            </div>
+
+    </div>
+
+   
+</div>

@@ -1,0 +1,38 @@
+.fonte {
+    font-size: 15px;
+    color: rgb(38, 14, 61);
+    background: rgb(216, 183, 247);
+}
+.fonte1 {
+    font-size: 12px;
+}
+.fonte2 {
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    background-color: blueviolet;
+}
+.fonte2:hover {
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    background-color: rgb(38, 14, 61);
+    color: blueviolet;
+}
+.menuFonte {
+    font-size: 20px;
+    color: blueviolet;
+}
+.ng-invalid.ng-touched:not(form) {
+    border: 2px solid #f00;
+}
+.fonte4 {
+    font-size: 30px;
+    color: rgb(104, 16, 163);
+}
+.fonte5 {
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    background-color: rgb(148, 140, 155);
+}

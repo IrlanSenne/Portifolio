@@ -1,0 +1,19 @@
+table{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+table thead{
+    background-color: brown;
+    color: white;
+    border: 5px solid rgb(168, 102, 102);
+   
+}
+table td{
+    border: 1px solid brown;
+}
+h1{
+    text-align: center;
+    font-weight: bold;
+    color: tomato;
+}

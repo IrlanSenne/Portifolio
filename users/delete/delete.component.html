@@ -1,0 +1,23 @@
+<div class="container panel panel-default text-center">
+    <h1 *ngIf="!mostra">Remover Usuário ?</h1>
+    <h1 *ngIf="mostra">Pronto !!!</h1>
+</div>
+<div class="text-center " *ngIf="!mostra">
+
+    <label ><h3>Nome: </h3> <strong>{{ user.first_name }} {{ user.last_name }}</strong>
+       
+    </label>    
+    <br>       
+  
+    <label ><h3>ID: </h3><strong>{{ user.id }}</strong>
+       
+    </label> 
+        <br>
+    <button class="btn btn-danger btn-lg" [ngStyle]="{marginRight: '10px'}" (click)="remove()"
+   >Confirmar</button>    
+     <button class="btn btn-danger btn-lg" (click)="cancel()"
+   >Cancelar</button>   <br>
+  
+</div>
+<div *ngIf="mostra" class="alert alert-danger text-center fonte1">
+    O usuário {{ user.first_name }} foi removido !</div>

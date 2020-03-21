@@ -1,0 +1,216 @@
+<!-- LOGO-->
+
+  <div class="container panel">
+    <a class="navbar-brand">
+        <img id="imgLogo" src="assets/clave-sol.png"      
+        width="130" height="130" class="d-inline-block align-top" 
+        alt="" routerLink="/loja-virtual">      
+    </a>   
+  </div>
+
+    <!-- ===================='MENU'==================00-->
+
+    <ul class="nav justify-content-end " [ngStyle]="{ position: 'relative',
+    top: '-50px',left: 'auto' }">
+
+      <li class="nav-item mr-5">
+          <a id="aMenu" class="btn btn-danger btn-lg botaoMenu " title="Loja" (click)="mostrarLoja()" 
+          (mouseout)="onMouseOut()"
+          routerLink="/loja-virtual/loja" > Loja </a>
+      </li>
+
+      <li class="nav-item">
+          <a id="aMenu1" class="btn btn-danger  btn-lg botaoMenu" title="Carrinho" (click)="mostrarCarrinho()" 
+          (mouseout)="onMouseOut1()">
+           Carrinho <span *ngIf="nItens >= 1" class="badge">{{ nItens }}</span></a>
+      </li>     
+
+    </ul>
+
+    <!-- =================== TITULO ======================-->
+
+    <div *ngIf="mostraLoja" class="container">
+     <div class="row panel panel-default espaco">
+      <div class="container text-center">
+           <h3  [ngStyle]="{
+         color: 'white', fontFamily: 'Shadows Into Light, cursive', fontSize: '50px',backgroundColor: 'brown',
+         padding: '20px'
+         }">Instrumentos Musicais
+          </h3>
+        </div>
+      </div>
+
+<!-- Instrumentos ( IMGs )-->
+ <!--============== Violão ===================== -->
+
+ <div class="row">
+  <div class="col">
+    <img src="assets/violao.png" [ngStyle]="{width:'205px'}">       
+   
+       <div class="card" style="width: 15rem;">
+        <div class="card-body">
+          <h5 class="card-title">Violão</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Informações</h6>
+          <p class="card-text card-tam"><strong>Cor:</strong> Preto <br> 
+            <strong>Tamanho:</strong> 1.05 X 0.40 <br><strong>Preço: </strong> <span class="valor-card">97.00</span></p>      
+        </div>
+      </div>
+      <button class="btn btn-secondary tamBotao1" title="Adicionar ao carrinho" (click)="adicionarProduto1()">+ Adicionar</button>
+     
+    </div>
+
+   <!--============== Bateria ===================== -->
+
+  <div class="col">
+    <img src="assets/bateria.png" [ngStyle]="{width:'170px'}">
+ 
+ <div class="card" style="width: 15rem;">
+    <div class="card-body">
+      <h5 class="card-title">Bateria</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Informações</h6>
+      <p class="card-text card-tam"><strong>Cor:</strong> Preto <br> 
+          <strong>Tamanho:</strong> 1.20 X 1.40 <br>
+          <strong>Preço: </strong> <span class="valor-card">189.00</span>
+      </p>      
+    </div>
+  </div>
+  <button class="btn btn-secondary tamBotao1" title="Adicionar ao carrinho" (click)="adicionarProduto2()">+ Adicionar</button>
+  </div>
+
+ <!--============== Guitarra ===================== -->
+
+  <div class="col">
+    <img src="assets/guitarra.png" [ngStyle]="{width:'110px'}">
+      <h5>Guitarra</h5><br>
+      <div class="card" style="width: 15rem;">
+        <div class="card-body">
+          <h5 class="card-title">Guitarra</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Informações</h6>
+          <p class="card-text card-tam"><strong>Cor:</strong> Preto <br> 
+            <strong>Tamanho:</strong> 1.20 X 0.40 <br><strong>Preço: </strong> <span class="valor-card">251.00</span></p>      
+        </div>
+      </div>
+     
+      <button class="btn btn-secondary tamBotao1" title="Adicionar ao carrinho" 
+      (click)="adicionarProduto3()">+ Adicionar</button>
+  </div> 
+
+ <!--============== Microfone ===================== -->
+
+  <div class="col">
+    <img src="assets/microfone.png" [ngStyle]="{width:'185px'}"><br>
+  <div class="card" style="width: 15rem;">
+    <div class="card-body">
+      <h5 class="card-title">Microfone</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Informações</h6>
+      <p class="card-text card-tam"><strong>Cor:</strong> Preto <br> 
+        <strong>Tamanho:</strong> 0.20 X 0.10 <br><strong>Preço: </strong>
+         <span class="valor-card">56.00</span></p>      
+    </div>
+  </div>
+  <button class="btn btn-secondary tamBotao1" title="Adicionar ao carrinho"
+   (click)="adicionarProduto4()">+ Adicionar</button>
+  </div>
+
+  <!--============== Teclado ===================== -->
+
+  <div class="col">
+    <img src="assets/teclado.png" [ngStyle]="{width:'135px'}">
+  <div class="card" style="width: 15rem;">
+    <div class="card-body">
+      <h5 class="card-title">Teclado</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Informações</h6>
+      <p class="card-text card-tam"><strong>Cor:</strong> Preto <br> 
+        <strong>Tamanho:</strong> 1.20 X 0.80 <br><strong>Preço: </strong>
+         <span class="valor-card">145.00</span></p>      
+    </div>
+  </div>
+ 
+  <button class="btn btn-secondary tamBotao1" title="Adicionar ao carrinho"
+   (click)="adicionarProduto5()">+ Adicionar</button>
+  </div>
+</div>
+<br><br>
+
+  <!-- ================= FOOTER LOJA ============================-->
+
+  <footer class=" corRodape">
+    <div class="text-center">
+     <i  class="glyphicon glyphicon-thumbs-up icones"></i>
+     <i class="glyphicon glyphicon-search icones"></i>
+     <i class="glyphicon glyphicon-envelope icones"></i>
+    </div>
+     <p class="rodape text-center"> 
+      *** Todos os direitos reservados - Irlan Senne ***
+     </p>
+         </footer>
+
+</div> 
+<hr>
+<!-- ====================================================================================
+    ================================== C A R R I N H O ====================================
+    =======================================================================================
+  -->
+<div *ngIf="mostraCarrinho" class="row">
+ 
+  <div class="container">
+    <div class="row panel panel-default espaco text-center">
+    <div class="container ">
+      <h3 id="tituloCarrinho" class="tituloCarrinho">...Carrinho...</h3>
+    </div>
+    </div>
+
+    <!-- Informações da compra-->
+
+    <div class="container panel panel-default">
+     
+   <div class="container">
+  <div class="row">
+    <div class="col">
+      <span id="quadro" class="quadro"> Número de ítens:</span>
+      <span id="quadroNumber" class="quadroNumber precoTotal"> {{ nItens }}</span>
+    </div>
+    <div class="col text-right">
+      <span  id="quadro1" class="quadro1" >Total a pagar: </span>
+      <span  id="precoTotal" class="quadroNumber precoTotal"> {{ precoTotal | currency: '€ ' }}</span>
+    </div>
+  </div><br><br>
+
+    <!-- PRODUTOS ADICIONADOS-->
+
+    <h3 id="tituloProdutos" class="tituloProdutos">Produtos Selecionados</h3>
+    <br><hr>
+
+<div class="row">
+
+  <i *ngFor="let produto of produtos; let i= index">
+    <div class="col-6 " >  
+      <button class="btn btn-outline-danger" (click)="remover(produto, produto.valor)">
+          <i [ngStyle]="{width: '15px'}" 
+              class="glyphicon glyphicon-remove">
+          </i>
+      </button> 
+
+      <img src="assets/{{produto.img}}" 
+      [ngStyle]="{width:'135px'}">
+
+    <h5 [ngStyle]="{fontSize: '20px'}">{{produto.nome}}</h5><br>
+  
+    <div class="row">
+      <button class="btn btn-secondary tamBotao" (click)="informacoes()">Informações</button><br><br>
+    </div>
+  </div>
+  </i>
+</div>
+  <!-- ================= FOOTER CARRINHO ============================-->
+
+  <footer class=" corRodape">
+      <div class="text-center">
+            <i  class="glyphicon glyphicon-thumbs-up icones"></i>
+            <i class="glyphicon glyphicon-search icones"></i>
+            <i class="glyphicon glyphicon-envelope icones"></i>
+      </div>
+        <p class="rodape text-center"> 
+        *** Todos os direitos reservados - Irlan Senne ***
+        </p>
+  </footer>

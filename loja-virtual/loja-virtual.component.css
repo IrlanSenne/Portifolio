@@ -1,0 +1,62 @@
+
+@media screen and (max-width: 600px){
+    #foto-logo{
+        width: 110px;
+        height: 110px;
+    }
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 1000px){
+    #foto-logo{
+        width: 140px;
+        height: 140px;
+    }
+
+}
+
+
+.botaoMenu{
+    width: 150px;
+    background-color: rgb(155, 57, 40);
+    font-size: 30px;
+    font-family: 'Quicksand', sans-serif;
+}
+.botaoMenu:hover{
+    color: rgb(54, 21, 21);
+    background-color: rgb(223, 156, 156);
+}
+.corRodape{
+    background-color: rgb(49, 34, 34);
+}
+.icones{
+    font-size:30px;
+    color: white;
+    margin-right: 50px;
+    opacity: .5;
+    
+}
+.rodape{
+    color: white;
+    opacity: .6;
+    font-size: 20px;
+    font-family: 'Indie Flower', cursive;
+}
+#tituloHome{
+    color: tomato;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+    font-size: 25px;
+}
+#tituloHome1{
+    color: rgb(83, 34, 25);
+    font-family: 'Pacifico', cursive;
+  
+}
+#boxSha{
+    box-shadow: 10px 10px 120px 10px rgba(46, 8, 8, 0.4);
+}
+#boxSha2{
+    box-shadow: 10px 10px 120px 10px rgba(228, 17, 17, 0.4);
+}
+

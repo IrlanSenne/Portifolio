@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Jogo da Velha</title>
+<style>
+body{
+  background-color: lightcoral;
+}
+  #div1 {
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    left: 20px;
+    top:20px;
+    border-right:2px solid #000;
+    border-bottom:2px solid #000;
+    font-size: 30px;
+    font-weight: border;
+    text-align: center;
+    display:table-cell;
+    vertical-align: middle;   
+    color:indigo
+
+    
+  }
+  #div2 {
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    left: 120px;
+    top:20px;
+    border-right:2px solid #000;
+    border-bottom:2px solid #000;
+    font-size: 30px;
+    font-weight: border;
+    text-align: center;
+    display:table-cell ;
+    vertical-align: middle;
+    color:indigo
+  }
+  #div3 {
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    left: 218px;
+    top:20px;
+    border-left:2px solid #000;
+    border-bottom:2px solid #000;
+    font-size: 30px;
+    font-weight: border;
+    text-align: center;
+    display:table-cell ;
+    vertical-align: middle;
+    color:indigo
+  }
+  #div4 {
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    left: 20px;
+    top:120px;
+    border-right:2px solid #000;
+    border-bottom:2px solid #000;
+    font-size: 30px;
+    font-weight: border;
+    text-align: center;
+    display:table-cell ;
+    vertical-align: middle;
+    color:indigo
+  }
+  #div5 {
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    left: 120px;
+    top:120px;
+    border-right:2px solid #000;
+    border-bottom:2px solid #000;
+    font-size: 30px;
+    font-weight: border;
+    text-align: center;
+    display:table;
+    vertical-align: middle;
+    color:indigo
+  }
+  #div6 {
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    left: 218px;
+    top:120px;
+    border-left:2px solid #000;
+    border-bottom:2px solid #000;
+    font-size: 30px;
+    font-weight: border;
+    text-align: center;
+    display:table-cell ;
+    vertical-align: middle;
+    color:indigo
+  }
+  #div7 {
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    left: 20px;
+    top:218px;
+    border-right:2px solid #000;
+    font-size: 30px;
+    font-weight: border;
+    text-align: center;
+    display:table-cell ;
+    vertical-align: middle;
+    color:indigo
+  
+  }
+  #div8 {
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    left: 120px;
+    top:218px;
+    border-right:2px solid #000;
+    font-size: 30px;
+    font-weight: border;
+    text-align: center;
+    display:table-cell ;
+    vertical-align: middle;
+    color:indigo
+  
+  }
+  #div9 {
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    left: 218px;
+    top:218px;
+    font-size: 30px;
+    font-weight: border;
+    text-align: center;
+    display:table-cell ;
+    vertical-align: middle;
+    color:indigo
+  
+  }
+  #novoJogo{
+    width: 250px;
+    height: 80px;
+    position:absolute;
+    left: 518px;
+    top:218px;
+    font-size: 35px;
+    font-weight: border;
+    text-align: center;
+    border-radius: 10px;
+    display: none;
+    color:rgb(85, 111, 138);
+    background-color: rgb(54, 7, 58);
+  }
+  #novoJogo:hover{
+    color:mediumpurple;
+    background-color: rgb(121, 105, 117);
+  }
+
+</style>
+  
+</head>
+
+<body>
+<div id="div1" onclick="game(this)"></div>
+<div id="div2" onclick="game(this)"></div>
+<div id="div3" onclick="game(this)"></div>
+<div id="div4" onclick="game(this)"></div>
+<div id="div5" onclick="game(this)"></div>
+<div id="div6" onclick="game(this)"></div>
+<div id="div7" onclick="game(this)"></div>
+<div id="div8" onclick="game(this)"></div>
+<div id="div9" onclick="game(this)"></div>
+
+<a href="http://www.jogo-da-velha-js.epizy.com" id="novoJogo" class="btn btn-light btn-lg active" role="button" aria-pressed="true">Novo Jogo</a>
+
+    <script>
+
+  
+   var div1=document.getElementById("div1")
+   var div2=document.getElementById("div2")
+   var div3=document.getElementById("div3")
+   var div4=document.getElementById("div4")
+   var div5=document.getElementById("div5")
+   var div6=document.getElementById("div6")
+   var div7=document.getElementById("div7")
+   var div8=document.getElementById("div8")
+   var div9=document.getElementById("div9")
+   var divs=[]
+   var comp
+   var fim = 0
+   var btn = document.getElementById("novoJogo")
+   var empate= true
+
+   divs.push(div1)
+   divs.push(div2)
+   divs.push(div3)
+   divs.push(div4)
+   divs.push(div5)
+   divs.push(div6)
+   divs.push(div7)
+   divs.push(div8)
+   divs.push(div9)
+
+
+  
+ function game(posicao){
+  
+
+ 
+    if(posicao.innerHTML=="X" || posicao.innerHTML=="0" ){
+      alert("Marque outro campo")
+    }else{
+      posicao.innerHTML="X"
+    comp =  Math.floor(Math.random() * 9)
+    }
+  
+    
+  
+  
+  
+  resultado()
+  if(fim == 4 && empate == true){
+   
+   alert("Empate")
+   btn.style.display="block"
+    
+    }else if(fim == 4 && empate == false){
+      resultado()
+      btn.style.display="block"
+    }else{
+
+    // A T A Q U E
+      
+      if(divs[0].innerHTML == "0" && divs[1].innerHTML == "0" && divs[2].innerHTML == "" ){
+   
+   divs[2].innerHTML="0"
+   divs[2].style.color="#00f200"
+  
+
+ }else if(divs[0].innerHTML == "0" && divs[1].innerHTML == "" && divs[2].innerHTML == "0"){
+   divs[1].innerHTML="0"
+   divs[1].style.color="#00f200"
+ 
+ }else if(divs[0].innerHTML == "" && divs[1].innerHTML == "0" && divs[2].innerHTML == "0"){
+  
+   divs[0].innerHTML="0"
+   divs[0].style.color="#00f200"
+
+ }else if(divs[0].innerHTML == "0" && divs[3].innerHTML == "0" && divs[6].innerHTML == "" ){
+   divs[6].innerHTML="0"
+   divs[6].style.color="#00f200"
+   
+  
+ }else if(divs[0].innerHTML == "0" && divs[3].innerHTML == "" && divs[6].innerHTML == "0" ){
+   divs[3].innerHTML="0"
+   divs[3].style.color="#00f200"
+   
+ }else if(divs[0].innerHTML == "0" && divs[4].innerHTML == "0" && divs[8].innerHTML == "" ){
+   divs[8].innerHTML="0"
+   divs[8].style.color="#00f200"
+   
+ 
+ }else if(divs[0].innerHTML == "0" && divs[4].innerHTML == "" && divs[8].innerHTML == "0" ){
+   divs[4].innerHTML="0"
+   divs[4].style.color="#00f200"
+   
+ }else if(divs[0].innerHTML == "" && divs[4].innerHTML == "0" && divs[8].innerHTML == "0" ){
+   divs[0].innerHTML="0"
+   divs[0].style.color="#00f200"
+   
+ }else if(divs[3].innerHTML == "" && divs[4].innerHTML == "0" && divs[5].innerHTML == "0" ){
+   divs[3].innerHTML="0"
+   divs[3].style.color="#00f200"
+   
+ }else if(divs[3].innerHTML == "0" && divs[4].innerHTML == "" && divs[5].innerHTML == "0" ){
+   divs[4].innerHTML="0"
+   divs[4].style.color="#00f200"
+   
+ }else if(divs[3].innerHTML == "0" && divs[4].innerHTML == "0" && divs[5].innerHTML == "" ){
+   divs[5].innerHTML="0"
+   divs[5].style.color="#00f200"
+   
+ }
+ else if(divs[6].innerHTML == "0" && divs[7].innerHTML == "0" && divs[8].innerHTML == "" ){
+   divs[2].innerHTML="0"
+   divs[2].style.color="#00f200"
+   
+ }
+ else if(divs[6].innerHTML == "0" && divs[7].innerHTML == "" && divs[8].innerHTML == "0" ){
+   divs[7].innerHTML="0"
+   divs[7].style.color="#00f200"
+ } else if(divs[6].innerHTML == "" && divs[7].innerHTML == "0" && divs[8].innerHTML == "0" ){
+   divs[6].innerHTML="0"
+   divs[6].style.color="#00f200"
+   
+ } else if(divs[1].innerHTML == "0" && divs[4].innerHTML == "0" && divs[7].innerHTML == "" ){
+   divs[7].innerHTML="0"
+   divs[7].style.color="#00f200"
+   
+ } else if(divs[1].innerHTML == "0" && divs[4].innerHTML == "" && divs[7].innerHTML == "0" ){
+   divs[4].innerHTML="0"
+   divs[4].style.color="#00f200"
+   
+ } else if(divs[1].innerHTML == "" && divs[4].innerHTML == "0" && divs[7].innerHTML == "0" ){
+   divs[1].innerHTML="0"
+   divs[1].style.color="#00f200"
+   
+ } else if(divs[2].innerHTML == "0" && divs[5].innerHTML == "0" && divs[8].innerHTML == "" ){
+   divs[8].innerHTML="0"
+   divs[8].style.color="#00f200"
+   
+ }else if(divs[2].innerHTML == "0" && divs[5].innerHTML == "" && divs[8].innerHTML == "0" ){
+   divs[5].innerHTML="0"
+   divs[5].style.color="#00f200"
+   
+ }else if(divs[2].innerHTML == "" && divs[5].innerHTML == "0" && divs[8].innerHTML == "0" ){
+   divs[2].innerHTML="0"
+   divs[2].style.color="#00f200"
+   
+ }else if(divs[2].innerHTML == "0" && divs[4].innerHTML == "0" && divs[6].innerHTML == "" ){
+   divs[6].innerHTML="0"
+   divs[6].style.color="#00f200"
+   
+ }
+ else if(divs[2].innerHTML == "0" && divs[4].innerHTML == "" && divs[6].innerHTML == "0" ){
+   divs[4].innerHTML="0"
+   divs[4].style.color="#00f200"
+   
+ }else if(divs[2].innerHTML == "" && divs[4].innerHTML == "0" && divs[6].innerHTML == "0" ){
+   divs[2].innerHTML="0"
+   divs[2].style.color="#00f200"
+   
+ }
+// D E F E S A
+    
+      if(divs[0].innerHTML == "X" && divs[1].innerHTML == "X" && divs[2].innerHTML == "" ){
+   
+    divs[2].innerHTML="0"
+    divs[2].style.color="#00f200"
+   
+
+  }else if(divs[0].innerHTML == "X" && divs[1].innerHTML == "" && divs[2].innerHTML == "X"){
+    divs[1].innerHTML="0"
+    divs[1].style.color="#00f200"
+  
+  }else if(divs[0].innerHTML == "" && divs[1].innerHTML == "X" && divs[2].innerHTML == "X"){
+   
+    divs[0].innerHTML="0"
+    divs[0].style.color="#00f200"
+
+  }else if(divs[0].innerHTML == "X" && divs[3].innerHTML == "X" && divs[6].innerHTML == "" ){
+    divs[6].innerHTML="0"
+    divs[6].style.color="#00f200"
+    
+   
+  }else if(divs[0].innerHTML == "X" && divs[3].innerHTML == "" && divs[6].innerHTML == "X" ){
+    divs[3].innerHTML="0"
+    divs[3].style.color="#00f200"
+    
+  }else if(divs[0].innerHTML == "X" && divs[4].innerHTML == "X" && divs[8].innerHTML == "" ){
+    divs[8].innerHTML="0"
+    divs[8].style.color="#00f200"
+    
+  
+  }else if(divs[0].innerHTML == "X" && divs[4].innerHTML == "" && divs[8].innerHTML == "X" ){
+    divs[4].innerHTML="0"
+    divs[4].style.color="#00f200"
+    
+  }else if(divs[0].innerHTML == "" && divs[4].innerHTML == "X" && divs[8].innerHTML == "X" ){
+    divs[0].innerHTML="0"
+    divs[0].style.color="#00f200"
+    
+  }else if(divs[3].innerHTML == "" && divs[4].innerHTML == "X" && divs[5].innerHTML == "X" ){
+    divs[3].innerHTML="0"
+    divs[3].style.color="#00f200"
+    
+  }else if(divs[3].innerHTML == "X" && divs[4].innerHTML == "" && divs[5].innerHTML == "X" ){
+    divs[4].innerHTML="0"
+    divs[4].style.color="#00f200"
+    
+  }else if(divs[3].innerHTML == "X" && divs[4].innerHTML == "X" && divs[5].innerHTML == "" ){
+    divs[5].innerHTML="0"
+    divs[5].style.color="#00f200"
+    
+  }
+  else if(divs[6].innerHTML == "X" && divs[7].innerHTML == "X" && divs[8].innerHTML == "" ){
+    divs[2].innerHTML="0"
+    divs[2].style.color="#00f200"
+    
+  }
+  else if(divs[6].innerHTML == "X" && divs[7].innerHTML == "" && divs[8].innerHTML == "X" ){
+    divs[7].innerHTML="0"
+    divs[7].style.color="#00f200"
+    
+  } else if(divs[6].innerHTML == "" && divs[7].innerHTML == "X" && divs[8].innerHTML == "X" ){
+    divs[6].innerHTML="0"
+    divs[6].style.color="#00f200"
+    
+  } else if(divs[1].innerHTML == "X" && divs[4].innerHTML == "X" && divs[7].innerHTML == "" ){
+    divs[7].innerHTML="0"
+    divs[7].style.color="#00f200"
+    
+  } else if(divs[1].innerHTML == "X" && divs[4].innerHTML == "" && divs[7].innerHTML == "X" ){
+    divs[4].innerHTML="0"
+    divs[4].style.color="#00f200"
+    
+  } else if(divs[1].innerHTML == "" && divs[4].innerHTML == "X" && divs[7].innerHTML == "X" ){
+    divs[1].innerHTML="0"
+    divs[1].style.color="#00f200"
+    
+  } else if(divs[2].innerHTML == "X" && divs[5].innerHTML == "X" && divs[8].innerHTML == "" ){
+    divs[8].innerHTML="0"
+    divs[8].style.color="#00f200"
+    
+  }else if(divs[2].innerHTML == "X" && divs[5].innerHTML == "" && divs[8].innerHTML == "X" ){
+    divs[5].innerHTML="0"
+    divs[5].style.color="#00f200"
+    
+  }else if(divs[2].innerHTML == "" && divs[5].innerHTML == "X" && divs[8].innerHTML == "X" ){
+    divs[2].innerHTML="0"
+    divs[2].style.color="#00f200"
+    
+  }else if(divs[2].innerHTML == "X" && divs[4].innerHTML == "X" && divs[6].innerHTML == "" ){
+    divs[6].innerHTML="0"
+    divs[6].style.color="#00f200"
+    
+  }
+  else if(divs[2].innerHTML == "X" && divs[4].innerHTML == "" && divs[6].innerHTML == "X" ){
+    divs[4].innerHTML="0"
+    divs[4].style.color="#00f200"
+    
+  }else if(divs[2].innerHTML == "" && divs[4].innerHTML == "X" && divs[6].innerHTML == "X" ){
+    divs[2].innerHTML="0"
+    divs[2].style.color="#00f200"
+    
+  }else{
+   do{comp=Math.floor(Math.random() * 9)} 
+   while(divs[comp].innerHTML=="X" || divs[comp].innerHTML=="0" )
+    divs[comp].innerHTML="0"
+    divs[comp].style.color="#00f200"
+  }
+      resultado()
+      
+  
+  fim++
+  
+}
+
+}
+ 
+
+
+function resultado(){
+  if(divs[0].innerHTML == "X" && divs[1].innerHTML == "X" && divs[2].innerHTML == "X" ){
+    divs[0].style.backgroundColor="#00E600"
+    divs[1].style.backgroundColor="#00E600"
+    divs[2].style.backgroundColor="#00E600"
+    empate = false
+    alert("Ganhou")  
+    btn.style.display="block"  
+  }else if(divs[0].innerHTML == "X" && divs[3].innerHTML == "X" && divs[6].innerHTML == "X" ){
+    divs[0].style.backgroundColor="#00E600"
+    divs[3].style.backgroundColor="#00E600"
+    divs[6].style.backgroundColor="#00E600"
+    empate = false
+    alert("Ganhou")
+    btn.style.display="block"
+  }else if(divs[0].innerHTML == "X" && divs[4].innerHTML == "X" && divs[8].innerHTML == "X" ){
+    divs[0].style.backgroundColor="#00E600"
+    divs[4].style.backgroundColor="#00E600"
+    divs[8].style.backgroundColor="#00E600"
+    empate = false
+    alert("Ganhou")
+    btn.style.display="block"
+  }else if(divs[3].innerHTML == "X" && divs[4].innerHTML == "X" && divs[5].innerHTML == "X" ){
+    empate = false
+    divs[3].style.backgroundColor="#00E600"
+    divs[4].style.backgroundColor="#00E600"
+    divs[5].style.backgroundColor="#00E600"
+    
+    alert("Ganhou")
+    btn.style.display="block"
+  }else if(divs[6].innerHTML == "X" && divs[7].innerHTML == "X" && divs[8].innerHTML == "X" ){
+    empate = false
+    divs[6].style.backgroundColor="#00E600"
+    divs[7].style.backgroundColor="#00E600"
+    divs[8].style.backgroundColor="#00E600"
+    
+    alert("Ganhou")
+    btn.style.display="block"
+  }else if(divs[1].innerHTML == "X" && divs[4].innerHTML == "X" && divs[7].innerHTML == "X" ){
+    divs[1].style.backgroundColor="#00E600"
+    divs[4].style.backgroundColor="#00E600"
+    divs[7].style.backgroundColor="#00E600"
+    empate = false
+    alert("Ganhou")
+    btn.style.display="block"
+  }else if(divs[2].innerHTML == "X" && divs[5].innerHTML == "X" && divs[8].innerHTML == "X" ){
+    divs[2].style.backgroundColor="#00E600"
+    divs[5].style.backgroundColor="#00E600"
+    divs[8].style.backgroundColor="#00E600"
+    empate = false
+    alert("Ganhou")
+    btn.style.display="block"
+  }else if(divs[2].innerHTML == "X" && divs[4].innerHTML == "X" && divs[6].innerHTML == "X" ){
+    divs[2].style.backgroundColor="#00E600"
+    divs[4].style.backgroundColor="#00E600"
+    divs[6].style.backgroundColor="#00E600"
+    empate = false
+    alert("Ganhou")
+    btn.style.display="block"
+  }
+  
+  if(divs[0].innerHTML == "0" && divs[1].innerHTML == "0" && divs[2].innerHTML == "0" ){
+    divs[0].style.backgroundColor="#e60000"
+    divs[1].style.backgroundColor="#e60000"
+    divs[2].style.backgroundColor="#e60000"
+
+    alert("Perdeu")
+    btn.style.display="block"
+    
+  }else if(divs[0].innerHTML == "0" && divs[3].innerHTML == "0" && divs[6].innerHTML == "0" ){
+    divs[0].style.backgroundColor="#e60000"
+    divs[3].style.backgroundColor="#e60000"
+    divs[6].style.backgroundColor="#e60000"
+ 
+    alert("Perdeu")
+    btn.style.display="block"
+    
+  }else if(divs[0].innerHTML == "0" && divs[4].innerHTML == "0" && divs[8].innerHTML == "0" ){
+    divs[0].style.backgroundColor="#e60000"
+    divs[4].style.backgroundColor="#e60000"
+    divs[8].style.backgroundColor="#e60000"
+   
+    alert("Perdeu")
+    btn.style.display="block"
+  }else if(divs[3].innerHTML == "0" && divs[4].innerHTML == "0" && divs[5].innerHTML == "0" ){
+    divs[3].style.backgroundColor="#e60000"
+    divs[4].style.backgroundColor="#e60000"
+    divs[5].style.backgroundColor="#e60000"
+
+    alert("Perdeu")
+    btn.style.display="block"
+    
+  }else if(divs[6].innerHTML == "0" && divs[7].innerHTML == "0" && divs[8].innerHTML == "0" ){
+    divs[6].style.backgroundColor="#e60000"
+    divs[7].style.backgroundColor="#e60000"
+    divs[8].style.backgroundColor="#e60000"
+   
+    alert("Perdeu")
+    btn.style.display="block"
+    
+  }else if(divs[1].innerHTML == "0" && divs[4].innerHTML == "0" && divs[7].innerHTML == "0" ){
+    divs[1].style.backgroundColor="#e60000"
+    divs[4].style.backgroundColor="#e60000"
+    divs[7].style.backgroundColor="#e60000"
+   
+    alert("Perdeu")
+    btn.style.display="block"
+    
+  }else if(divs[2].innerHTML == "0" && divs[5].innerHTML == "0" && divs[8].innerHTML == "0" ){
+    divs[2].style.backgroundColor="#e60000"
+    divs[5].style.backgroundColor="#e60000"
+    divs[8].style.backgroundColor="#e60000"
+  
+    alert("Perdeu")
+    btn.style.display="block"
+    
+  }else if(divs[2].innerHTML == "0" && divs[4].innerHTML == "0" && divs[6].innerHTML == "0" ){
+    divs[2].style.backgroundColor="#e60000"
+    divs[4].style.backgroundColor="#e60000"
+    divs[6].style.backgroundColor="#e60000"
+    
+    alert("Perdeu")
+    btn.style.display="block"
+    
+  }
+  
+  }
+
+   </script>
+   
+    
+</body>
+</html>

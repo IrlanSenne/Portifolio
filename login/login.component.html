@@ -1,0 +1,108 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class=" container form-group ">
+  
+    <div class="col-sm-12 ">
+      <label for="nome" class="fonte4" >Nome </label>
+      <input type="text" class="form-control fonte" formControlName="nome" id="nome" 
+      aria-describedby="emailHelp" placeholder="Seu nome aqui" >
+    
+      <div *ngIf="!this.formulario.get('nome').valid && this.formulario.get('nome').touched" 
+      class="alert alert-danger fonte1" role="alert">
+        *Campo obrigatório
+  
+      </div>
+    </div>
+      </div>
+
+      <div class="container form-group ">
+    <div class="col-sm-12 ">   
+      <label for="email" class="fonte4" >Email </label>
+      <input type="email" class="form-control fonte" id="email" formControlName="email" 
+      aria-describedby="emailHelp" placeholder="nome@email.com">
+    <div *ngIf="!this.formulario.get('email').valid && this.formulario.get('email').touched" 
+    class="alert alert-danger fonte1" role="alert">
+      *Email inválido
+    </div>
+  </div>
+    </div>
+  
+   
+
+
+    <div class="container form-group ">
+    <div class="col-sm-3 ">
+    
+        <label for="cep" class="fonte4" >Código Postal </label>
+        <input type="text" class="form-control fonte" id="cep" formControlName="cep" 
+        (blur)="consultaCEP()">
+      <div *ngIf="!this.formulario.get('cep').valid && this.formulario.get('cep').touched"
+      class="alert alert-danger fonte1" role="alert">
+        *Código inválido
+      </div>
+    </div>
+     
+      
+      
+      <div class="col-sm-3 ">
+        
+          <label for="numero" class="fonte4" >Número </label>
+          <input type="text" class="form-control fonte" id="cep" formControlName="numero" 
+          placeholder="">
+        <div *ngIf="!this.formulario.get('numero').valid && this.formulario.get('numero').touched"
+        class="alert alert-danger fonte1" role="alert">
+        *Campo obrigatório
+        </div>
+      </div>
+        
+
+        <div class="col-sm-6 ">
+            <label for="complemento" class="fonte4" >Complemento </label>
+            <input type="text" class="form-control fonte" id="cep" formControlName="complemento"/>
+          </div>
+        </div>
+      
+        <div class="container form-group ">
+          <div class="col-sm-12 ">
+            <label for="rua" class="fonte4" >Rua </label>
+            <input type="text" class="form-control fonte" formControlName="rua" id="rua" 
+            aria-describedby="emailHelp">
+          
+            <div *ngIf="!this.formulario.get('rua').valid && this.formulario.get('rua').touched" 
+            class="alert alert-danger fonte1" role="alert">
+              *Campo obrigatório
+        
+            </div>
+          </div>
+            </div>
+
+
+      <div class=" container form-group ">
+          <div class="col-sm-6 ">
+            
+              <label for="cidade" class="fonte4" >Cidade </label>
+              <input type="text" class="form-control fonte" id="cep" formControlName="cidade" 
+              placeholder="">
+            <div *ngIf="!this.formulario.get('cidade').valid && this.formulario.get('cidade').touched"
+            class="alert alert-danger fonte1" role="alert">
+              *Campo obrigatório
+            </div>
+          </div>
+          
+
+            <div class="col-sm-6">              
+                <label for="distrito" class="fonte4" >Distrito </label>
+                <input type="text" class="form-control fonte" id="cep" formControlName="distrito" 
+                placeholder="">
+              <div *ngIf="!this.formulario.get('distrito').valid && this.formulario.get('distrito').touched"
+              class="alert alert-danger fonte1" role="alert">
+              *Campo obrigatório
+              </div>
+            </div>
+          </div>
+              <hr>
+              <div class="container">
+              <button type="submit" class="btn btn-primary fonte2"
+             >Enviar</button> 
+              <button type="button" class="btn btn-outline-secondary fonte21" (click)="reseta()">Cancelar</button>
+            </div>
+  </form>
